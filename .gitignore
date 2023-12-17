@@ -1,0 +1,4 @@
+.env
+
+# venv 가상환경
+/discord_bot/*
