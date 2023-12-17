@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import text_util
 import datetime
+
 # 짝수주에는 확인하지 않음
 # if datetime.datetime.now().isocalendar()[1] % 2 == 0:
 # 	exit(0)
