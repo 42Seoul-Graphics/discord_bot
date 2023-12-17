@@ -23,7 +23,7 @@ def parse_file_metadata_and_tags(filepath):
     }
 
 
-def getFilesInfo():
+def get_files_info():
 	# 클론할 Git 리포지토리 URL
 	repo_url = os.environ.get("REPO_URL")
 
@@ -58,9 +58,9 @@ def getFilesInfo():
 	subprocess.run(["rm", "-rf", clone_dir])
 	return text
 
-def getUnCompletedMember():
+def get_uncompleted_member():
 	uncompleted_members = []
-	files = getFilesInfo()
+	files = get_files_info()
 	#  TODO: file info 를 통해 안 한사람들 명단 반환
 
 	uncompleted_members.append('seongyle')
