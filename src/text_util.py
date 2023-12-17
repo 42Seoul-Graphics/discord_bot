@@ -33,16 +33,21 @@ def getFilesInfo():
 
 	# Git 클론 명령어 실행
 	subprocess.run(["git", "clone", repo_url, clone_dir])
-
 	# 각 마크다운 파일에 대해 메타데이터 및 태그 파싱
 	for root, dirs, files in os.walk(clone_dir):
 		writer = root.split('/')[-1]
+		print("\n\nroot: ",root)
+		print("\ndirs: ", dirs)
+		print("\nfiles: ", files,"\n\n")
+
 		for filename in files:
 			if filename.endswith(".md"):
 				filepath = os.path.join(root, filename)
 				metadata = parse_file_metadata_and_tags(filepath)
 				text += "SOMTHING"
 				# 파일이 이전 격주 화요일 이후에 생성되었는지 확인
+
+
 				print(f"Writer: {writer}")
 				print(f"File: {filename}")
 				print(f"Creation Time: {metadata['ctime']}")
