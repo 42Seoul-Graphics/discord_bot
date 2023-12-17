@@ -26,7 +26,7 @@ jobs:
       
       - name: Install python dependencies
         run: |
-          python3 -m pip install --ipupgrade pip
+          python3 -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       
       - name: check uncompleted members and post message
