@@ -12,8 +12,7 @@ class MyClient(discord.Client):
         channel = self.get_channel(int(CHANNEL_ID))
         #  TODO: 조건에 따른 메시지 작성
         text = 'someting ~~~'
-        print ("hello")
-        # await channel.send(text)
+        await channel.send(text)
         await self.close()
     
 intents = discord.Intents.default()
