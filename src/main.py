@@ -19,7 +19,7 @@ class MyClient(discord.Client):
         channel = self.get_channel(int(CHANNEL_ID))
         #  TODO: 조건에 따른 메시지 작성
         uncompleted_members = text_util.get_uncompleted_member()
-        await channel.send(f"test gitaction: {uncompleted_members}님.")
+        await channel.send(f"이번회차에는 {uncompleted_members}님이 안했어요. 다음에는 꼭 해봐요!")
         await self.close()
 
 intents = discord.Intents.default()
