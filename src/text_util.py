@@ -1,13 +1,11 @@
 import os
-import json
 import re
-import subprocess
 from datetime import datetime, timedelta
 
 # 파일 메타데이터 및 태그 파싱 함수
 def parse_file_metadata_and_tags(filepath, filename):
     folder = os.path.dirname(filepath)
-    commit_counts_in_2weeks = int(os.popen("cd " + folder + " && git log --since=1.days --oneline " + filename + " | wc -l").read().strip())
+    commit_counts_in_2weeks = int(os.popen("cd " + folder + " && git log --since=2.weeks --oneline " + filename + " | wc -l").read().strip())
     # 파일 내부에서 태그 파싱
     tags = set()
     with open(filepath, 'r', encoding='utf-8') as file:
@@ -46,16 +44,20 @@ def get_files_info():
         temp['commit_counts_in_2weeks'] = metadata['commit_counts_in_2weeks']
         temp['tags'] = metadata['tags']
         res_data.append(temp)
-  # 클론된 리포지토리 삭제
-  # os.system("rm -rf " + clone_dir)
   return res_data
 
 def get_uncompleted_member():
   uncompleted_members = []
   files = get_files_info()
-  all_members = files[-1]['all_members']
-  # for file in files:
-    #  print(file)
+  all_members = get_all_members()
+  for member in all_members:
+    is_completed = False
+    for file in files:
+      if file['writer'] == member and file['commit_counts_in_2weeks'] > 0:
+        is_completed = True
+        break
+    if is_completed == False:
+      uncompleted_members.append(member)
   return uncompleted_members
 
 def get_all_members():
