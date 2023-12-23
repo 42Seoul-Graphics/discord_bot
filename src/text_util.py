@@ -35,8 +35,6 @@ def get_files_info():
   # 각 마크다운 파일에 대해 메타데이터 및 태그 파싱
   for root, dirs, files in os.walk(clone_dir):
     writer = root.split('/')[-1]
-    if root == clone_dir:
-      all_members = dirs
     for filename in files:
       if filename.endswith(".md"):
         temp = {}
@@ -50,18 +48,26 @@ def get_files_info():
         res_data.append(temp)
   # 클론된 리포지토리 삭제
   # os.system("rm -rf " + clone_dir)
-  all_members.remove('.git')
-  res_data.append({'all_members': all_members})
   return res_data
 
 def get_uncompleted_member():
   uncompleted_members = []
   files = get_files_info()
-  print(files)
+  all_members = files[-1]['all_members']
   # for file in files:
     #  print(file)
   return uncompleted_members
 
+def get_all_members():
+  repo_url = os.environ.get("REPO_URL")
+  clone_dir = os.environ.get("CLONE_DIR")
+  all_members = []
+  os.system("git clone " + repo_url + " " + clone_dir)
+  for root, dirs, files in os.walk(clone_dir):
+    if root == clone_dir:
+      all_members = dirs
+  all_members.remove('.git')
+  return all_members
 
 
 
