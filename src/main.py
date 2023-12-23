@@ -19,11 +19,11 @@ class MyClient(discord.Client):
         channel = self.get_channel(int(CHANNEL_ID))
         #  TODO: 조건에 따른 메시지 작성
         uncompleted_members = text_util.get_uncompleted_member()
-        await channel.send(uncompleted_members)
+        await channel.send(f"test gitaction: {uncompleted_members}님.")
         # print(f"열심히 하세요. : {uncompleted_members}")
-        await self.close()
 
 intents = discord.Intents.default()
+intents.reconnect = False
 intents.message_content = True
 
 client = MyClient(intents=intents)
