@@ -32,7 +32,7 @@ def get_files_info():
 	text = ""
 
 	# Git 클론 명령어 실행
-	subprocess.run(["git", "clone", repo_url, clone_dir])
+	os.system("git clone" + repo_url + clone_dir)
 	# 각 마크다운 파일에 대해 메타데이터 및 태그 파싱
 	for root, dirs, files in os.walk(clone_dir):
 		writer = root.split('/')[-1]
@@ -55,7 +55,7 @@ def get_files_info():
 				print(f"Tags: {metadata['tags']}\n")
 
 	# 클론된 리포지토리 삭제
-	subprocess.run(["rm", "-rf", clone_dir])
+	os.system("rm -rf " + clone_dir)
 	return text
 
 def get_uncompleted_member():
