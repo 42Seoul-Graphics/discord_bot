@@ -63,6 +63,7 @@ def get_uncompleted_member():
 	files = get_files_info()
 	#  TODO: file info 를 통해 안 한사람들 명단 반환
 
+	uncompleted_members.append('test: ')
 	uncompleted_members.append('seongyle')
 	return uncompleted_members
 
