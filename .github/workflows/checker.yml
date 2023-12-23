@@ -17,7 +17,7 @@ jobs:
           echo "DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}" > .env
           echo "CHANNEL_ID=${{ secrets.CHANNEL_ID }}" >> .env
           echo "REPO_URL=${{ secrets.REPO_URL }}" >> .env
-          echo "CLONE_DIR$={{ secrets.CLONE_DIR }}" >> .env
+          echo "CLONE_DIR=${{ secrets.CLONE_DIR }}" >> .env
           
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
