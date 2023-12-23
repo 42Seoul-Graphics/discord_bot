@@ -23,7 +23,6 @@ class MyClient(discord.Client):
         # print(f"열심히 하세요. : {uncompleted_members}")
 
 intents = discord.Intents.default()
-intents.reconnect = False
 intents.message_content = True
 
 client = MyClient(intents=intents)
