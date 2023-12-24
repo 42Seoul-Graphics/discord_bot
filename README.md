@@ -37,7 +37,7 @@
 
 ### How to check umcompleted memebers
 
-- [제출레포](https://github.com/42Seoul-Graphics/record)에 자신의 폴더에 파일 제출
+- [제출레포](https://github.com/42Seoul-Graphics/record) 자신의 폴더에 파일 제출
 - 스터디 봇은 2주안에 자신의 폴더안에 깃 커밋이 있는지로 판단
 - 깃커밋 시간을 기준으로 판단됨
 
